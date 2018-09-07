@@ -9,7 +9,7 @@ import Error404 from './Error404';
 
 function App(){
   var containerStyle = {
-    backgroundColor: 'rgb(255, 255, 255, 0.4)'
+    backgroundColor: 'rgb(255, 255, 255, 0.5)',
   };
   return (
     <div>
@@ -17,10 +17,11 @@ function App(){
         body {
           background-image: url(${bg});
           background-size: cover;
+          background-attachment: fixed;
           background-repeat: no-repeat;
         }
         `}</style>
-      <div className="container">
+      <div className="container" style={containerStyle}>
         <Header/>
         <Switch>
           <Route exact path='/' component={BeerList} />

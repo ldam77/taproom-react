@@ -10,11 +10,16 @@ function Header() {
           text-align: center;
           color: #e2dad5;
         }
+        .link {
+          text-align: right;
+        }
         `}</style>
       <div className="header">
         <h1>Tap Room</h1>
       </div>
-      <Link to="/">Home</Link> | <Link to="/newbeer">Add New Beer</Link>
+      <div className="link">
+        <Link to="/">Home</Link> | <Link to="/newbeer">Add New Beer</Link>
+      </div>
     </div>
   );
 }
