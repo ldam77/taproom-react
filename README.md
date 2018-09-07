@@ -8,6 +8,20 @@
 
 Tap Room is an application that allows a user to view a list of beer and add and edit its contents.
 
+## Setup
+
+  * Clone or download repository
+  * npm install
+  * npm run start
+
+## Technologies Used
+
+  **React, HTML, CSS**
+
+## Support and Contact
+
+For any questions or support details, please email:
+  * ldam77@yahoo.com  
 
 
 ## Specification
@@ -26,6 +40,10 @@ As an employee, I want the option to edit a keg's properties after entering them
 * As a patron, I want to have kegs prices to be color-coded for easy readability. Perhaps based on their price (greater or less than $5 per pint, perhaps) or the particular style of beer or kombucha.
 
 * As a patron, I want to use the alcohol content property to display stronger beers differently than weaker beers.
+
+## Component Route and Structure
+
+![Component Route and Structure](component_structure.png)
 
 ### License
 
