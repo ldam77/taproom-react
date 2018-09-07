@@ -2,6 +2,8 @@ import React from 'react';
 import bg from './../img/bg1.jpg';
 import Header from './Header';
 import BeerList from './BeerList';
+import { Switch, Route } from 'react-router-dom';
+import { NewBeer } from './NewBeer';
 
 function App(){
   var containerStyle = {
@@ -18,7 +20,10 @@ function App(){
         `}</style>
       <div className="container">
         <Header/>
-        <BeerList/>
+        <Switch>
+          <Route exact path='/' component={BeerList} />
+          <Route exact path='/newbeer' component={NewBeer} />
+        </Switch>
       </div>
     </div>
 

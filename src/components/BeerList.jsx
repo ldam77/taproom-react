@@ -52,19 +52,19 @@ const state = {
       remaining: '58'
     }
   ]
-}
+};
 
 function BeerList() {
   return(
     <div>
       {state.masterKegList.map((entry, index) =>
         <Beer name={entry.name}
-              brewer={entry.brewer}
-              description={entry.description}
-              abv={entry.abv}
-              price={entry.price}
-              remaining={entry.remaining}
-              key={index} />
+          brewer={entry.brewer}
+          description={entry.description}
+          abv={entry.abv}
+          price={entry.price}
+          remaining={entry.remaining}
+          key={index} />
       )}
     </div>
   );

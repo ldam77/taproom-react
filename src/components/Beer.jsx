@@ -8,7 +8,7 @@ function Beer(props) {
       <p>Brewer: {props.brewer}</p>
       <p>Description: {props.description}</p>
       <p>ABV: {props.abv}</p>
-      <p>Price: {props.price}</p>
+      <p>Price: ${props.price}</p>
       <p>Pints Remaining: {props.remaining}</p>
     </div>
   );
