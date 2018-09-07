@@ -9,7 +9,7 @@ const state = {
       description: 'Sparkling Wine & Grapefruit',
       abv: '6.8%',
       price: '7',
-      remaining: '20'
+      remaining: '9'
     },
     {
       name: 'Tart N Juicy',
