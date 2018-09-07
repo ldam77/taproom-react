@@ -63,7 +63,6 @@ module.exports = {
             test: /\.(jpg|png|gif|svg|pdf)$/,
             use: [
                 {
-                  // loader: 'file?name=src/img/favicon.ico'
                     loader: 'file-loader',
                     options: {
                         name: '[path][name]-[hash:8].[ext]'
