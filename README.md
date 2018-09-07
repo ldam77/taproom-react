@@ -59,4 +59,4 @@ As an employee, I want the option to edit a keg's properties after entering them
 
 *This software is licensed under the MIT license.*
 
-Copyright (c) 2018 **Anousone Kaseumsouk, Lan Dam, Jean Jia**
+Copyright (c) 2018 **Lan Dam**
