@@ -9,9 +9,10 @@ function Beer(props) {
   };
 
   let abvStyle = '';
-  if (parseInt(props.abv.slice(0,-1)) > 6) {
+  if (parseFloat(props.abv.slice(0,-1)) > 6) {
     abvStyle = 'strong';
   };
+  console.log(abvStyle);
 
   let priceStyle = '';
   if (parseInt(props.price) < 5) {
@@ -35,9 +36,11 @@ function Beer(props) {
       <h2>{props.name}</h2>
       <p>Brewer: {props.brewer}</p>
       <p>Description: {props.description}</p>
-      <p>ABV: <span className={abvStyle}>{props.abv}</span></p>
-      <p>Price: <span className={priceStyle}>${props.price}</span></p>
-      <p>Pints Remaining: <span className={remainStyle}>{props.remaining}</span></p>
+      <p>
+        ABV: <span className={abvStyle}>{props.abv}</span>,
+        Price: <span className={priceStyle}>${props.price}</span>,
+        Pints Remaining: <span className={remainStyle}>{props.remaining}</span>
+      </p>
     </div>
   );
 }
