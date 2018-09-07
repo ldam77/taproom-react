@@ -1,4 +1,4 @@
-# TapRoom
+# TapRoom - React
 
 #### A beer keg application.
 
@@ -7,6 +7,10 @@
 ## Description
 
 Tap Room is an application that allows a user to view a list of beer and add and edit its contents.
+This is a React version of the TapRoom web application previously built with Angular.
+There is a lot of similarities between the two way of coding, since both break it down into multiple smaller components.
+Angular's components are base on the objects and how to interact with them.
+React's components are base on the functions, with each component fulfilling one specific functionality.
 
 ## Setup
 
@@ -40,6 +44,12 @@ As an employee, I want the option to edit a keg's properties after entering them
 * As a patron, I want to have kegs prices to be color-coded for easy readability. Perhaps based on their price (greater or less than $5 per pint, perhaps) or the particular style of beer or kombucha.
 
 * As a patron, I want to use the alcohol content property to display stronger beers differently than weaker beers.
+
+## Notes
+
+* Component Route and Structure drawing is preliminary based on the limited functionality.  Will be updated once all functionalities are added next week.
+* Don't know how to edit and save properties data yet. This include adding new keg to list. Hopefully complete this spec next week
+* Not sure if button to sell a pint need to be a separate component.  Will be complete next week with the edit functionality
 
 ## Component Route and Structure
 
