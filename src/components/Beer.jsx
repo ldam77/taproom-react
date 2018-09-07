@@ -41,6 +41,7 @@ function Beer(props) {
         Price: <span className={priceStyle}>${props.price}</span>,
         Pints Remaining: <span className={remainStyle}>{props.remaining}</span>
       </p>
+      <hr/>
     </div>
   );
 }

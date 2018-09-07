@@ -20,6 +20,7 @@ function Header() {
       <div className="link">
         <Link to="/">Home</Link> | <Link to="/newbeer">Add New Beer</Link>
       </div>
+      <hr/>
     </div>
   );
 }

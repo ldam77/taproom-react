@@ -9,7 +9,7 @@ import Error404 from './Error404';
 
 function App(){
   var containerStyle = {
-    backgroundColor: 'rgb(255, 255, 255, 0.5)',
+    backgroundColor: 'rgb(255, 255, 255, 0.6)',
   };
   return (
     <div>
