@@ -3,39 +3,41 @@ import PropTypes from 'prop-types';
 
 function Beer(props) {
 
-  let remainStyle = 'normal';
+  let remainStyle = '';
   if (parseInt(props.remaining) < 10) {
     remainStyle = 'low';
   };
 
-  let abvStyle = 'strong';
-  console.log(props.abv.slice(0,-1));
-  if (parseInt(props.abv.slice(0,-1)) < 5) {
-    abvStyle = 'weak';
-  ;
+  let abvStyle = '';
+  if (parseInt(props.abv.slice(0,-1)) > 6) {
+    abvStyle = 'strong';
+  };
+
+  let priceStyle = '';
+  if (parseInt(props.price) < 5) {
+    priceStyle = 'cheap';
+  }
+
 
   return (
     <div>
       <style jsx>{`
-          .normal {
-            color: yellow;
-          }
           .low {
             color: red;
           }
           .strong {
             font-weight: bold;
           }
-          .weak {
-            font-style: italic;
+          .cheap {
+            color: green;
           }
         `}</style>
       <h2>{props.name}</h2>
       <p>Brewer: {props.brewer}</p>
       <p>Description: {props.description}</p>
-      <p className={abvStyle}>ABV: {props.abv}</p>
-      <p>Price: ${props.price}</p>
-      <p className={remainStyle}>Pints Remaining: {props.remaining}</p>
+      <p>ABV: <span className={abvStyle}>{props.abv}</span></p>
+      <p>Price: <span className={priceStyle}>${props.price}</span></p>
+      <p>Pints Remaining: <span className={remainStyle}>{props.remaining}</span></p>
     </div>
   );
 }
