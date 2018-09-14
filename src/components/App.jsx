@@ -64,12 +64,13 @@ class App extends React.Component{
           remaining: 58
         }
       },
-      selectedBeer: null
+      selectedBeer: null,
     };
     this.handleAddNewBeer = this.handleAddNewBeer.bind(this);
     this.handleSellBeer = this.handleSellBeer.bind(this);
     this.handleSelectBeer = this.handleSelectBeer.bind(this);
     this.handleEditBeer = this.handleEditBeer.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleAddNewBeer(newBeer){
@@ -95,6 +96,12 @@ class App extends React.Component{
     this.setState({selectedBeer: null});
   }
 
+  handleDelete(beerId) {
+    let newBeerList = Object.assign({}, this.state.masterBeerList);
+    delete newBeerList[beerId];
+    this.setState({masterBeerList: newBeerList});
+  }
+
   render() {
     return (
       <div>
@@ -118,7 +125,8 @@ class App extends React.Component{
                                                                selectedBeer={this.state.selectedBeer}
                                                                onSellBeer={this.handleSellBeer}
                                                                onSelectBeer={this.handleSelectBeer}
-                                                               onEditBeer={this.handleEditBeer} />} />
+                                                               onEditBeer={this.handleEditBeer}
+                                                               onDelete={this.handleDelete} />} />
             <Route exact path='/newbeer' render={()=><NewBeerForm onAddNewBeer={this.handleAddNewBeer} />} />
             <Route component={Error404} />
           </Switch>

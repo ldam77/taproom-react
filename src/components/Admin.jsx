@@ -26,7 +26,8 @@ function Admin(props) {
         <BeerList beerList={props.beerList}
                   path={props.path}
                   onSellBeer={props.onSellBeer}
-                  onSelectBeer={props.onSelectBeer} />
+                  onSelectBeer={props.onSelectBeer}
+                  onDelete={props.onDelete} />
       </div>
     );
   }
@@ -38,6 +39,7 @@ Admin.propTypes = {
   selectedBeer: PropTypes.string,
   onSellBeer: PropTypes.func,
   onSelectBeer: PropTypes.func,
-  onEditBeer: PropTypes.func
+  onEditBeer: PropTypes.func,
+  onDelete: PropTypes.func
 }
 export default Admin;

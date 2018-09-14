@@ -45,7 +45,8 @@ function Beer(props) {
   if (props.path === '/admin') {
     return (
       <div>
-        <h2>{props.name} <button onClick={()=>props.onSelectBeer(props.beerId)}>Edit</button></h2>
+        <h2>{props.name} <button type='button' className='btn btn-warning' onClick={()=>props.onSelectBeer(props.beerId)}>Edit</button>
+          <button type='button' className='btn btn-danger' onClick={()=>props.onDelete(props.beerId)}>Delete</button> </h2>
         <button type='button' onClick={()=>props.onSellBeer(props.beerId, 1)}>Pint</button>
         <button type='button' onClick={()=>props.onSellBeer(props.beerId, 2)}>Growler</button>
         <button type='button' onClick={()=>props.onSellBeer(props.beerId, 4)}>Large Growler</button>
@@ -73,7 +74,8 @@ Beer.propTypes = {
   path: PropTypes.string,
   beerId: PropTypes.string,
   onSellBeer: PropTypes.func,
-  onSelectBeer: PropTypes.func
+  onSelectBeer: PropTypes.func,
+  onDelete: PropTypes.func
 };
 
 export default Beer;
