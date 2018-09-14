@@ -15,13 +15,18 @@ function BeerList(props) {
           abv={beer.abv}
           price={beer.price}
           remaining={beer.remaining}
-          key={beerId} />
+          path={props.path}
+          key={beerId}
+          beerId={beerId}
+          onSellBeer={props.onSellBeer} />
       })}
     </div>
   );
 }
 
 BeerList.propTypes = {
-  beerList: PropTypes.object
+  beerList: PropTypes.object,
+  path: PropTypes.string,
+  onSellBeer: PropTypes.func
 }
 export default BeerList;

@@ -18,31 +18,48 @@ function Beer(props) {
     priceStyle = 'cheap';
   }
 
+  const beerInformation =
+  <div>
+    <style jsx>{`
+        .low {
+          color: red;
+        }
+        .strong {
+          font-weight: bold;
+        }
+        .cheap {
+          color: green;
+        }
 
-  return (
-    <div>
-      <style jsx>{`
-          .low {
-            color: red;
-          }
-          .strong {
-            font-weight: bold;
-          }
-          .cheap {
-            color: green;
-          }
-        `}</style>
-      <h2>{props.name}</h2>
-      <p>Brewer: {props.brewer}</p>
-      <p>Description: {props.description}</p>
-      <p>
-        ABV: <span className={abvStyle}>{props.abv}</span>,
-        Price: <span className={priceStyle}>${props.price}</span>,
-        Pints Remaining: <span className={remainStyle}>{props.remaining}</span>
-      </p>
-      <hr/>
-    </div>
-  );
+      `}</style>
+    <p>Brewer: {props.brewer}</p>
+    <p>Description: {props.description}</p>
+    <p>
+      ABV: <span className={abvStyle}>{props.abv}</span>,
+      Price: <span className={priceStyle}>${props.price}</span>,
+      Pints Remaining: <span className={remainStyle}>{props.remaining}</span>
+    </p>
+  </div>;
+
+  if (props.path === '/admin') {
+    return (
+      <div>
+        <h2>{props.name}</h2>
+        <button type='button' onClick={()=>props.onSellBeer(props.beerId, 1)}>Pint</button>
+        <button type='button' onClick={()=>props.onSellBeer(props.beerId, 2)}>Growler</button>
+        <button type='button' onClick={()=>props.onSellBeer(props.beerId, 4)}>Large Growler</button>
+        {beerInformation}
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h2>{props.name}</h2>
+        {beerInformation}
+        <hr/>
+      </div>
+    );
+  }
 }
 
 Beer.propTypes = {
@@ -52,6 +69,9 @@ Beer.propTypes = {
   abv: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   remaining: PropTypes.string.isRequired,
+  path: PropTypes.string,
+  beerId: PropTypes.string,
+  onSellBeer: PropTypes.func
 };
 
 export default Beer;
