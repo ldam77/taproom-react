@@ -13,7 +13,7 @@ function App(){
   };
   return (
     <div>
-      <style jsx>{`
+      <style global jsx>{`
         body {
           background-image: url(${bg});
           background-size: cover;
