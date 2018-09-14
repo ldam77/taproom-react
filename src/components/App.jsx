@@ -5,33 +5,95 @@ import BeerList from './BeerList';
 import NewBeerForm from './NewBeerForm';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
+import { v4 } from 'uuid';
 
 
-function App(){
-  var containerStyle = {
-    backgroundColor: 'rgb(255, 255, 255, 0.6)',
-  };
-  return (
-    <div>
-      <style global jsx>{`
-        body {
-          background-image: url(${bg});
-          background-size: cover;
-          background-attachment: fixed;
-          background-repeat: no-repeat;
+class App extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      masterBeerList: {
+        '1': {
+          name: 'Ruby Zozzle',
+          brewer: 'Hi-Wheel',
+          description: 'Sparkling Wine & Grapefruit',
+          abv: '6.8%',
+          price: '7',
+          remaining: '9'
+        },
+        '2': {
+          name: 'Tart N Juicy',
+          brewer: 'Epic',
+          description: 'Sour IPA',
+          abv: '4.5%',
+          price: '6',
+          remaining: '60'
+        },
+        '3': {
+          name: 'Hamm\'s',
+          brewer: 'Miller/Coors',
+          description: 'American Lager',
+          abv: '4.7%',
+          price: '3',
+          remaining: '65'
+        },
+        '4': {
+          name: 'Prismatic',
+          brewer: 'Ninkasi',
+          description: 'Juicy IPA',
+          abv:  '5.9%',
+          price: '6',
+          remaining: '75'
+        },
+        '5': {
+          name: 'Juicy Haze',
+          brewer: 'New Belgium',
+          description: 'India Pale Ale',
+          abv:  '7.5%',
+          price: '6',
+          remaining: '18'
+        },
+        '6': {
+          name: '8 Hop',
+          brewer: 'New Belgium',
+          description: 'Pale Ale',
+          abv:  '5.5%',
+          price: '6',
+          remaining: '58'
         }
-        `}</style>
-      <div className="container" style={containerStyle}>
-        <Header/>
-        <Switch>
-          <Route exact path='/' component={BeerList} />
-          <Route exact path='/newbeer' component={NewBeerForm} />
-          <Route component={Error404} />
-        </Switch>
-      </div>
-    </div>
+      }
+    };
 
-  );
+  }
+
+  render() {
+    return (
+      <div>
+        <style global jsx>{`
+          body {
+            background-image: url(${bg});
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+          }
+          .containerStyle {
+            background-color: rgb(255,255,255, 0.6);
+          }
+          `}</style>
+        <div className="container containerStyle">
+          <Header/>
+          <Switch>
+            <Route exact path='/' render={()=><BeerList beerList={this.state.masterBeerList} />} />
+
+            <Route exact path='/newbeer' component={NewBeerForm} />
+            <Route component={Error404} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default App;
