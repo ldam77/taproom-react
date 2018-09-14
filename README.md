@@ -50,6 +50,7 @@ As an employee, I want the option to edit a keg's properties after entering them
 * Component Route and Structure drawing is preliminary based on the limited functionality.  Will be updated once all functionalities are added next week.
 * Don't know how to edit and save properties data yet. This include adding new keg to list. Hopefully complete this spec next week
 * Not sure if button to sell a pint need to be a separate component.  Will be complete next week with the edit functionality
+* 9/14/18 - Revised component structure to include admin route to handle add/delete/edit beer
 
 ## Component Route and Structure
 
