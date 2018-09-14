@@ -17,7 +17,7 @@ function Header() {
         <h1>Tap Room Brewery</h1>
       </div>
       <div className="link">
-        <Link to="/">Home</Link> | <Link to="/newbeer">Add New Beer</Link>
+        <Link to="/">Home</Link> | <Link to="/admin">Admin</Link>
       </div>
       <hr/>
     </div>

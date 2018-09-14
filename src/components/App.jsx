@@ -6,6 +6,7 @@ import NewBeerForm from './NewBeerForm';
 import { Switch, Route } from 'react-router-dom';
 import Error404 from './Error404';
 import { v4 } from 'uuid';
+import Admin from './Admin';
 
 
 class App extends React.Component{
@@ -85,7 +86,7 @@ class App extends React.Component{
           <Header/>
           <Switch>
             <Route exact path='/' render={()=><BeerList beerList={this.state.masterBeerList} />} />
-
+            <Route exact path='/admin' component={Admin} />
             <Route exact path='/newbeer' component={NewBeerForm} />
             <Route component={Error404} />
           </Switch>
