@@ -12,7 +12,6 @@ function Beer(props) {
   if (parseFloat(props.abv.slice(0,-1)) > 6) {
     abvStyle = 'strong';
   };
-  console.log(abvStyle);
 
   let priceStyle = '';
   if (parseInt(props.price) < 5) {

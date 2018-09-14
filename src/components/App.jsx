@@ -65,7 +65,13 @@ class App extends React.Component{
         }
       }
     };
+    this.handleAddNewBeer = this.handleAddNewBeer.bind(this);
+  }
 
+  handleAddNewBeer(newBeer){
+    let newId = v4();
+    let newBeerList = Object.assign({}, this.state.masterBeerList, {newId: newBeer});
+    this.setState({masterBeerList: newBeerList});
   }
 
   render() {
@@ -86,8 +92,8 @@ class App extends React.Component{
           <Header/>
           <Switch>
             <Route exact path='/' render={()=><BeerList beerList={this.state.masterBeerList} />} />
-            <Route exact path='/admin' component={Admin} />
-            <Route exact path='/newbeer' component={NewBeerForm} />
+            <Route exact path='/admin' render={()=><Admin beerList={this.state.masterBeerList} />} />
+            <Route exact path='/newbeer' render={()=><NewBeerForm onAddNewBeer={this.handleAddNewBeer} />} />
             <Route component={Error404} />
           </Switch>
         </div>
