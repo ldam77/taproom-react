@@ -18,7 +18,8 @@ function BeerList(props) {
           path={props.path}
           key={beerId}
           beerId={beerId}
-          onSellBeer={props.onSellBeer} />
+          onSellBeer={props.onSellBeer}
+          onSelectBeer={props.onSelectBeer} />
       })}
     </div>
   );
@@ -27,6 +28,7 @@ function BeerList(props) {
 BeerList.propTypes = {
   beerList: PropTypes.object,
   path: PropTypes.string,
-  onSellBeer: PropTypes.func
+  onSellBeer: PropTypes.func,
+  onSelectBeer: PropTypes.func
 }
 export default BeerList;

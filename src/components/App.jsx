@@ -21,7 +21,7 @@ class App extends React.Component{
           description: 'Sparkling Wine & Grapefruit',
           abv: '6.8%',
           price: '7',
-          remaining: '9'
+          remaining: 9
         },
         '2': {
           name: 'Tart N Juicy',
@@ -29,7 +29,7 @@ class App extends React.Component{
           description: 'Sour IPA',
           abv: '4.5%',
           price: '6',
-          remaining: '60'
+          remaining: 60
         },
         '3': {
           name: 'Hamm\'s',
@@ -37,7 +37,7 @@ class App extends React.Component{
           description: 'American Lager',
           abv: '4.7%',
           price: '3',
-          remaining: '65'
+          remaining: 65
         },
         '4': {
           name: 'Prismatic',
@@ -45,7 +45,7 @@ class App extends React.Component{
           description: 'Juicy IPA',
           abv:  '5.9%',
           price: '6',
-          remaining: '75'
+          remaining: 75
         },
         '5': {
           name: 'Juicy Haze',
@@ -53,7 +53,7 @@ class App extends React.Component{
           description: 'India Pale Ale',
           abv:  '7.5%',
           price: '6',
-          remaining: '18'
+          remaining: 18
         },
         '6': {
           name: '8 Hop',
@@ -61,17 +61,20 @@ class App extends React.Component{
           description: 'Pale Ale',
           abv:  '5.5%',
           price: '6',
-          remaining: '58'
+          remaining: 58
         }
-      }
+      },
+      selectedBeer: null
     };
     this.handleAddNewBeer = this.handleAddNewBeer.bind(this);
     this.handleSellBeer = this.handleSellBeer.bind(this);
+    this.handleSelectBeer = this.handleSelectBeer.bind(this);
+    this.handleEditBeer = this.handleEditBeer.bind(this);
   }
 
   handleAddNewBeer(newBeer){
     let newId = v4();
-    let newBeerList = Object.assign({}, this.state.masterBeerList, {newId: newBeer});
+    let newBeerList = Object.assign({}, this.state.masterBeerList, {[newId]: newBeer});
     this.setState({masterBeerList: newBeerList});
   }
 
@@ -79,6 +82,17 @@ class App extends React.Component{
     let newBeerList = Object.assign({}, this.state.masterBeerList);
     newBeerList[beerId].remaining -= amount;
     this.setState({masterBeerList: newBeerList});
+  }
+
+  handleSelectBeer(beerId) {
+    this.setState({selectedBeer: beerId});
+  }
+
+  handleEditBeer(beerId, editedBeer) {
+    let newBeerList = Object.assign({}, this.state.masterBeerList);
+    newBeerList[beerId] = editedBeer;
+    this.setState({masterBeerList: newBeerList});
+    this.setState({selectedBeer: null});
   }
 
   render() {
@@ -101,7 +115,10 @@ class App extends React.Component{
             <Route exact path='/' render={()=><BeerList beerList={this.state.masterBeerList} />} />
             <Route exact path='/admin' render={(props)=><Admin beerList={this.state.masterBeerList}
                                                                path={props.location.pathname}
-                                                               onSellBeer={this.handleSellBeer} />} />
+                                                               selectedBeer={this.state.selectedBeer}
+                                                               onSellBeer={this.handleSellBeer}
+                                                               onSelectBeer={this.handleSelectBeer}
+                                                               onEditBeer={this.handleEditBeer} />} />
             <Route exact path='/newbeer' render={()=><NewBeerForm onAddNewBeer={this.handleAddNewBeer} />} />
             <Route component={Error404} />
           </Switch>
