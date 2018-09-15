@@ -65,12 +65,14 @@ class App extends React.Component{
         }
       },
       selectedBeer: null,
+      displayLowBeer: false,
     };
     this.handleAddNewBeer = this.handleAddNewBeer.bind(this);
     this.handleSellBeer = this.handleSellBeer.bind(this);
     this.handleSelectBeer = this.handleSelectBeer.bind(this);
     this.handleEditBeer = this.handleEditBeer.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleToggleDisplayLowBeer = this.handleToggleDisplayLowBeer.bind(this);
   }
 
   handleAddNewBeer(newBeer){
@@ -102,6 +104,10 @@ class App extends React.Component{
     this.setState({masterBeerList: newBeerList});
   }
 
+  handleToggleDisplayLowBeer(displayState) {
+    this.setState({displayLowBeer: displayState})
+  }
+
   render() {
     return (
       <div>
@@ -126,7 +132,9 @@ class App extends React.Component{
                                                                onSellBeer={this.handleSellBeer}
                                                                onSelectBeer={this.handleSelectBeer}
                                                                onEditBeer={this.handleEditBeer}
-                                                               onDelete={this.handleDelete} />} />
+                                                               onDelete={this.handleDelete}
+                                                               displayLowBeer={this.state.displayLowBeer}
+                                                               onToggleDisplayLowBeer={this.handleToggleDisplayLowBeer} />} />
             <Route exact path='/newbeer' render={()=><NewBeerForm onAddNewBeer={this.handleAddNewBeer} />} />
             <Route component={Error404} />
           </Switch>

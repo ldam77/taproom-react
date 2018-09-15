@@ -23,11 +23,22 @@ function Admin(props) {
       <div>
         <Link to="/newbeer"><button type="button">Add A New Beer</button></Link>
         <hr/>
+
+        <label>
+          <input type="radio" value="false" checked={props.displayLowBeer === false} onChange={()=>{props.onToggleDisplayLowBeer(false)}} />
+          Display All
+        </label>
+        <label>
+          <input type="radio" value="true" checked={props.displayLowBeer === true} onChange={()=>{props.onToggleDisplayLowBeer(true)}} />
+          Display Low
+        </label>
+
         <BeerList beerList={props.beerList}
                   path={props.path}
                   onSellBeer={props.onSellBeer}
                   onSelectBeer={props.onSelectBeer}
-                  onDelete={props.onDelete} />
+                  onDelete={props.onDelete}
+                  displayLowBeer={props.displayLowBeer} />
       </div>
     );
   }
@@ -40,6 +51,8 @@ Admin.propTypes = {
   onSellBeer: PropTypes.func,
   onSelectBeer: PropTypes.func,
   onEditBeer: PropTypes.func,
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
+  displayLowBeer: PropTypes.bool,
+  onToggleDisplayLowBeer: PropTypes.func
 }
 export default Admin;
